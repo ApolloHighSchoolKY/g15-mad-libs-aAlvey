@@ -30,6 +30,9 @@ public class MadLib
 	public MadLib(String fileName)
 	{
 		//load stuff
+		loadAdjectives();
+		loadNouns();
+		loadVerbs();
 
 		try
 		{
@@ -45,15 +48,17 @@ public class MadLib
 				scannerStory.close();
 
 
+			
+
+
 
 			//While there is more of the story, read in the word/symbol
 
 				//If what was read in is one of the symbols, find a random
 				//word to replace it.
 			
-				int nounRand = (int)(Math.random()*21+1);
 
-				
+				int count = 0;
 				
 
 				for(int i = 0; i < daStory.size()-1 ;i++)
@@ -63,13 +68,13 @@ public class MadLib
 				if(daStory.get(i) == "#")
 				{
 					
-					daStory.set([i], nouns[nounRand]);
 					
+					count++;
 					
 
 				}
 
-				System.out.println(daStory);
+				System.out.println(count); 
 
 		}
 		catch(Exception e)
@@ -140,17 +145,23 @@ public class MadLib
 
 	public String getRandomVerb()
 	{
-		return "";
+		int spot =(int) (Math.random()*verbs.size());
+	
+		return "" + verbs.get(spot);
 	}
 
 	public String getRandomNoun()
 	{
-		return "";
+		int spot2 =(int) (Math.random()*nouns.size());
+		
+		return "" + nouns.get(spot2);
 	}
 
 	public String getRandomAdjective()
 	{
-		return "";
+		int spot3 =(int) (Math.random()*adjectives.size());
+		
+		return "" + adjectives.get(spot3);
 	}
 
 	public String toString()
